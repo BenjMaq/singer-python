@@ -226,11 +226,11 @@ def write_message(message):
     print('Writing message')
     sys.stdout.write(format_message(message) + '\n')
     print('Message written')
-    try:
-        sys.stdout.flush()
-    except Exception as e:
-        print(e)
-    print('Flushed')
+    # try:
+    #     sys.stdout.flush()
+    # except Exception as e:
+    #     print(e)
+    # print('Flushed')
 
 
 def write_record(stream_name, record, stream_alias=None, time_extracted=None):
