@@ -226,6 +226,14 @@ def write_message(message):
     print('Writing message')
     sys.stdout.write(format_message(message) + '\n')
     print('Message written')
+    sys.stdout.flush()
+    print('Flushed')
+
+
+def write_message_schema(message):
+    print('Writing message')
+    sys.stdout.write(format_message(message) + '\n')
+    print('Message written')
     # try:
     #     sys.stdout.flush()
     # except Exception as e:
@@ -269,7 +277,7 @@ def write_schema(stream_name, schema, key_properties, bookmark_properties=None, 
 
     print('Writing message schema')
 
-    write_message(
+    write_message_schema(
         SchemaMessage(
             stream=(stream_alias or stream_name),
             schema=schema,
