@@ -234,10 +234,7 @@ def write_message_schema(message):
     print('Writing message')
     sys.stdout.write(format_message(message) + '\n')
     print('Message written')
-    # try:
-    #     sys.stdout.flush()
-    # except Exception as e:
-    #     print(e)
+    # sys.stdout.flush()
     # print('Flushed')
 
 
