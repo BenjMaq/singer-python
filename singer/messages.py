@@ -223,10 +223,15 @@ def format_message(message):
 
 
 def write_message(message):
+    print('Writing message')
     sys.stdout.write(format_message(message) + '\n')
     print('Message written')
-    sys.stdout.flush()
+    try:
+        sys.stdout.flush()
+    except Exception as e:
+        print(e)
     print('Flushed')
+
 
 def write_record(stream_name, record, stream_alias=None, time_extracted=None):
     """Write a single record for the given stream.
@@ -262,7 +267,7 @@ def write_schema(stream_name, schema, key_properties, bookmark_properties=None, 
     if not isinstance(key_properties, list):
         raise Exception("key_properties must be a string or list of strings")
 
-    print('Writing message')
+    print('Writing message schema')
 
     write_message(
         SchemaMessage(
@@ -270,6 +275,7 @@ def write_schema(stream_name, schema, key_properties, bookmark_properties=None, 
             schema=schema,
             key_properties=key_properties,
             bookmark_properties=bookmark_properties))
+    print('Message schema written')
 
 
 def write_state(value):
